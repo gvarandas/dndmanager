@@ -1,0 +1,37 @@
+<section class='grid-container grid-column'>
+  <header class="col-12">
+    <h1>JOGADORES</h1>
+  </header>
+
+  <section class="grid-container col-12 player-list">
+    <mat-card class="col-5 player-card" *ngFor="let player of playerList">
+      <p>Name: <span>{{player.name}}</span></p>
+      <p>Race: <span>{{player.race}}</span></p>
+      <p>Class: <span>{{player.class}}</span></p>
+    </mat-card>
+  </section>
+
+  <section class="col-12">
+    <button mat-fab color="primary" (click)="togglePlayerForm()">
+      <mat-icon aria-label="Example icon-button with a heart icon">{{showPlayerForm ? 'close' : 'add'}}</mat-icon>
+    </button>
+  </section>
+
+  <section class="col-12" *ngIf='showPlayerForm'>
+    <form class="grid-container grid-column">
+      <mat-form-field>
+        <input matInput type='text' [(ngModel)]=" newPlayer.name" name="name" placeholder="Name" />
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type='text' [(ngModel)]="newPlayer.class" name="class" placeholder="Class" />
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type='text' [(ngModel)]="newPlayer.race" name="race" placeholder="Race" />
+      </mat-form-field>
+    </form>
+    <button mat-raised-button color="primary" (click)="registerPlayer($event)" color="primary">
+      Cadastrar
+    </button>
+  </section>
+
+</section>

@@ -1,0 +1,46 @@
+<section class='grid-container grid-column'>
+  <header class="col-12">
+    <h1>MONSTROS</h1>
+  </header>
+
+  <section class="grid-container col-12 monster-list">
+    <mat-card class="col-5 monster-card" *ngFor="let monster of monsterList">
+      <p>Name: <span>{{monster.name}}</span></p>
+      <p>Type: <span>{{monster.type}}</span></p>
+      <p>Size: <span>{{monster.size}}</span></p>
+    </mat-card>
+  </section>
+
+  <section class="col-12">
+    <button mat-fab color="primary" (click)="toggleMonsterForm()">
+      <mat-icon aria-label="Example icon-button with a heart icon">{{showMonsterForm ? 'close' : 'add'}}</mat-icon>
+    </button>
+  </section>
+
+  <section class="col-12" *ngIf="showMonsterForm">
+    <form class="">
+      <mat-form-field>
+        <input matInput type='text' [(ngModel)]="monsterSearch.index" name="index" placeholder="Index" />
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type='text' [(ngModel)]="monsterSearch.name" name="name" placeholder="Nome" />
+      </mat-form-field>
+    </form>
+    <button mat-raised-button color="primary" (click)="searchMonster()" color="primary">
+      Buscar
+    </button>
+
+    <div *ngIf="monsterResult && monsterResult.index">
+      <mat-card class="col-12">
+        <p>Id: <span>{{monsterResult.index}}</span></p>
+        <p>Name: <span>{{monsterResult.name}}</span></p>
+        <p>Type: <span>{{monsterResult.type}}</span></p>
+        <p>Size: <span>{{monsterResult.size}}</span></p>
+      </mat-card>
+      <button mat-raised-button color="primary" (click)="registerMonster()" color="primary">
+        Adicionar
+      </button>
+    </div>
+  </section>
+
+</section>

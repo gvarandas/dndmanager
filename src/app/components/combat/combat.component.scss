@@ -1,0 +1,22 @@
+#combat {
+
+  .participant-list {
+    justify-content: space-between;
+    align-items: center;
+
+    .participant {
+      margin: 15px 0;
+
+      #monster-info {
+
+        .manage-participant {
+          justify-content: space-around;
+          align-items: center;
+        }
+
+      }
+
+    }
+  }
+
+}

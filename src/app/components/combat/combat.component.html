@@ -1,0 +1,49 @@
+<section id="combat" class="grid-container grid-column">
+
+  <section class="grid-container col-12 generate-combat">
+    <button mat-raised-button color="primary" (click)="generateCombat($event)" color="primary" class="col-12">
+      Gerar Combate
+    </button>
+  </section>
+
+  <section id="list-participants" class="col-12">
+    <h1>MONSTROS</h1>
+    <section class="grid-container grid-row col-12 participant-list">
+      <mat-card class="col-5 participant" *ngFor="let monster of monsterList">
+        <div id="monster-info" class="grid-container">
+          <div class="col-7">
+            <p>{{monster.name}}</p>
+          </div>
+          <div class="grid-container col-5 manage-participant">
+            <button mat-mini-fab color="primary" (click)="removeMonster(monster)">
+              <mat-icon aria-label="Remove Monster Quantity">remove</mat-icon>
+            </button>
+            <span>{{monster.quantity}}</span>
+            <button mat-mini-fab color="primary" (click)="addMonster(monster)">
+              <mat-icon aria-label="Add Monster Quantity">add</mat-icon>
+            </button>
+          </div>
+        </div>
+      </mat-card>
+    </section>
+  </section>
+
+  <section id="list-participants" class="col-12">
+    <h1>PLAYERS</h1>
+    <section class="grid-container col-12 participant-list">
+      <mat-card class="col-5 participant" *ngFor="let player of playerList">
+        <div id="monster-info" class="grid-container">
+          <div class="col-7">
+            <p>{{player.name}}</p>
+          </div>
+          <div class="grid-container col-5 manage-participant">
+            <button mat-mini-fab color="primary" (click)="removePlayer(player)">
+              <mat-icon aria-label="Remove Player">close</mat-icon>
+            </button>
+          </div>
+        </div>
+      </mat-card>
+    </section>
+  </section>
+
+</section>

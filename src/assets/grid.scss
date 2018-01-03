@@ -1,0 +1,74 @@
+$desktop-columns: 12;
+$tablet-columns: 6;
+$mobile-columns: 4;
+$gutter-size: 30px;
+
+
+.grid-container {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;
+  margin-right: -$gutter-size;
+}
+
+.grid-column {
+  flex-direction: column;
+}
+
+.grid-row {
+  flex-direction: row;
+}
+
+
+
+/************************
+ * NOVO SISTEMA DE GRID *
+ ************************/
+
+@mixin generate-col-classes($num-cols, $prefix:'') {
+  @for $i from 1 through $num-cols {
+    $width: calc((100% / #{$num-cols}) * #{$i} - #{$gutter-size});
+    .col#{$prefix}-#{$i} {
+      -ms-flex-preferred-size: $width;
+      flex-basis: $width;
+      max-width: $width;
+      padding-right: $gutter-size;
+    }
+
+    .col#{$prefix}-offset-#{$i} {
+      margin-left: calc((100% / #{$num-cols}) * #{$i});
+    }
+  }
+}
+
+@include generate-col-classes($desktop-columns);
+
+@media screen and (min-width: 451px) and (max-width: 920px) {
+  @include generate-col-classes($tablet-columns, '-md');
+}
+
+@media screen and (max-width: 450px) {
+  @include generate-col-classes($mobile-columns, '-sm');
+}
+
+
+
+/**************************************
+ * DEPRECATED: ANTIGO SISTEMA DE GRID *
+ **************************************/
+
+ .flex-1 { flex: 1 }
+ .flex-2 { flex: 2 }
+ .flex-3 { flex: 3 }
+ .flex-4 { flex: 4 }
+ .flex-5 { flex: 5 }
+ .flex-6 { flex: 6 }
+ .flex-7 { flex: 7 }
+ .flex-8 { flex: 8 }
+ .flex-9 { flex: 9 }
+ .flex-10 { flex: 10 }
+ .flex-11 { flex: 11 }
+ .flex-12 { flex: 12 }

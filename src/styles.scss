@@ -1,0 +1,21 @@
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "src/assets/grid.scss";
+
+/* You can add global styles to this file, and also import other style files */
+.container {
+  display: flex;
+  padding: 5px;
+}
+
+.column {
+  flex: 1;
+  flex-direction: column;
+  // border: 2px solid green;
+}
+
+.row {
+  flex: 1;
+  padding: 10px;
+  flex-direction: row;
+  // border: 2px solid red;
+}
